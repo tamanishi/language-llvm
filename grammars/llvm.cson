@@ -1,0 +1,111 @@
+'scopeName': 'source.llvm'
+'name': 'LLVM assembly'
+'fileTypes': ['ll']
+'patterns': [
+	# LLVM instructions, as in http://llvm.org/docs/LangRef.html#instruction-reference
+	{
+		'match': '\\b(ret|br|switch|indirectbr|invoke|resume|unreachable)\\b'
+		'name': 'keyword.control.llvm'
+	}
+	{
+		'match': '\\b(add|fadd|sub|fsub|mul|fmul|udiv|sdiv|fdiv|urem|srem|frem)\\b'
+		'name': 'keyword.operator.binary.llvm'
+	}
+	{
+		'match': '\\b(shl|lshr|ashr|and|or|xor)\\b'
+		'name': 'keyword.operator.binary.bitwise.llvm'
+	}
+	{
+		'match': '\\b(extractelement|insertelement|shufflevector)\\b'
+		'name': 'keyword.operator.vector.llvm'
+	}
+	{
+		'match': '\\b(extractvalue|insertvalue)\\b'
+		'name': 'keyword.operator.aggregate.llvm'
+	}
+	{
+		'match': '\\b(alloca|load|store|fence|cmpxchg|atomicrmw|getelementptr)\\b'
+		'name': 'keyword.operator.memory.llvm'
+	}
+	{
+		'match': '\\b(trunc|zext|sext|fptrunc|fpext|fptoui|fptosi|uitofp|sitofp|ptrtoint|inttoptr|bitcast|addrspacecast|to)\\b'
+		'name': 'keyword.operator.conversion.llvm'
+	}
+	{
+		'match': '\\b(icmp|fcmp|phi|select|call|va_arg|landingpad)\\b'
+		'name': 'keyword.operator.memory.llvm'
+	}
+	
+	# Intrinsics
+	{
+		'match': '(@llvm\\.[a-zA-Z0-9\\$\\._]+)\\b'
+		'name': 'support.function.intrinsic.llvm'
+	}
+	
+	# Values
+	{
+		'match': '(%[a-zA-Z\\$\\._][a-zA-Z0-9\\$\\._]*)\\b'
+		'name': 'variable.value.local.llvm'
+	}
+	{
+		'match': '(@[a-zA-Z\\$\\._][a-zA-Z0-9\\$\\._]*)|@[0-9]+\\b'
+		'name': 'variable.value.global.llvm'
+	}
+	{
+		'match': '\\b([a-zA-Z\\$\\._][a-zA-Z0-9\\$\\._]*\\:)'
+		'name': 'constant.other.basicblock.llvm'
+	}
+	{
+		'begin': '(%")'
+		'end': '(")'
+		'name': 'variable.value.global.llvm'
+	}
+	{
+		'begin': '(@")'
+		'end': '(")'
+		'name': 'variable.value.global.llvm'
+	}
+	
+	# Functions
+	{
+		'match': '\\b(define|declare)\\b'
+		'name': 'storage.modifier.llvm'
+	}
+	
+	# Types
+	{
+		'match': '\\b(i[1-9][0-9]*)\\b'
+		'name': 'storage.type.int.llvm'
+	}
+	{
+		'match': '\\b(label|void)\\b'
+		'name': 'storage.type.special.llvm'
+	}
+	{
+		'match': '(\\*+)'
+		'name': 'storage.type.pointer.llvm'
+	}
+	
+	# Constants
+	{
+		'match': '\\b([0-9]+)\\b'
+		'name': 'constant.numeric.int.llvm'
+	}
+	{
+		'match': '\\b(true|false|null)\\b'
+		'name': 'constant.language.llvm'
+	}
+	
+	# Strings
+	{
+		'begin': '\\"'
+		'end': '\\"'
+		'name': 'string.quoted.double.llvm'
+	}
+	
+	# Comments
+	{
+		'match': ';.*$'
+		'name': 'comment.line.llvm'
+	}
+]

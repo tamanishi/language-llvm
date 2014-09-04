@@ -1,0 +1,12 @@
+{
+  "name": "language-llvm",
+  "version": "0.0.0",
+  "description": "LLVM assembly language support in Atom",
+  "repository": "https://github.com/Selujo/language-llvm",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
