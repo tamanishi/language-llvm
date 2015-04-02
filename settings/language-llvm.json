@@ -1,0 +1,7 @@
+{
+  ".source.llvm": {
+    "editor": {
+      "commentStart": "; "
+    }
+  }
+}
